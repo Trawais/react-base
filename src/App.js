@@ -39,6 +39,8 @@ function renderItem(item, handleClick) {
   )
 }
 
+// in Chrome developers tools - Rendering/paintFlashing
+
 function App() {
   return (
     <AppWrapper>
