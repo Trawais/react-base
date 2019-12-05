@@ -46,6 +46,7 @@ function App() {
       <ContentWrapper>
         <h1>react-base based on:</h1>
         <List items={items} />
+        <List items={items} renderItem={undefined} />
         <List items={items} renderItem={renderItem} />
       </ContentWrapper>
     </AppWrapper>
