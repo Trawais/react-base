@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components'
 import List from './List';
+import withInteractiveList from './withInteractiveList'
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -39,6 +40,12 @@ function renderItem(item, handleClick) {
   )
 }
 
+const ItemComponent = ({item, handleClick}) => (
+  <li onClick={() => handleClick(item)}>HOC - {item}</li>
+)
+
+const MyInteractiveList = withInteractiveList(ItemComponent);
+
 // in Chrome developers tools - Rendering/paintFlashing
 
 function App() {
@@ -53,9 +60,16 @@ function App() {
         <List items={items}>
           <a>dfghj</a>
         </List>
+        
+        <MyInteractiveList items={items} />
+
       </ContentWrapper>
     </AppWrapper>
   )
 }
 
 export default App;
+
+// Other sources:
+// https://dev.to/spukas/avoid-prop-drilling-in-react-with-context-api-1ne5
+// https://www.youtube.com/watch?v=BcVAq3YFiuc
