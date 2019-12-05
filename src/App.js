@@ -1,5 +1,6 @@
 import React from 'react';
 import styled, { createGlobalStyle } from 'styled-components'
+import List from './List';
 
 const GlobalStyles = createGlobalStyle`
   body {
@@ -24,17 +25,28 @@ const ContentWrapper = styled.div`
   max-width: 640px;
 `;
 
+const items = [
+  'create-react-app',
+  'styled-component',
+  'testing-libraries',
+  'redux',
+  'codex'
+]
+
+function renderItem(item, handleClick) {
+  return(
+    <li onClick={() => handleClick(item)}>:-){item}</li>
+  )
+}
+
 function App() {
   return (
     <AppWrapper>
       <GlobalStyles />
       <ContentWrapper>
         <h1>react-base based on:</h1>
-        <ul>
-          <li>create-react-app</li>
-          <li>styled-components</li>
-          <li>testing-library</li>
-        </ul>
+        <List items={items} />
+        <List items={items} renderItem={renderItem} />
       </ContentWrapper>
     </AppWrapper>
   )
