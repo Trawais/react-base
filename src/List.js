@@ -20,6 +20,7 @@ class List extends React.PureComponent {
     // const {items} = this.props;
     return (
       <ul>
+        {this.props.children}
         {this.props.items.map(
           item => this.props.renderItem(item, this.handleClick)
         )}

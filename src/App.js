@@ -48,6 +48,9 @@ function App() {
         <List items={items} />
         <List items={items} renderItem={undefined} />
         <List items={items} renderItem={renderItem} />
+        <List items={items}>
+          <a>dfghj</a>
+        </List>
       </ContentWrapper>
     </AppWrapper>
   )
