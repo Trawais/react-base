@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // const List = ({ items }) => (
 //   <ul>
@@ -20,14 +21,22 @@ class List extends React.PureComponent {
     return (
       <ul>
         {this.props.items.map(
-          item => this.props.renderItem ? this.props.renderItem(item, this.handleClick) : (
-            // <li onClick={() => window.alert(item)}>{item}</li>
-            <li onClick={() => this.handleClick(item)}>{item}</li>
-          )
+          item => this.props.renderItem(item, this.handleClick)
         )}
       </ul>
     ) 
   }
+}
+
+List.propTypes = {
+  items: PropTypes.array.isRequired,
+  renderItem: PropTypes.func
+}
+
+List.defaultProps = {
+  renderItem: (item, handleClick) => (
+    <li onClick={() => handleClick(item)}>{item}</li>
+  )
 }
 
 // () => {
